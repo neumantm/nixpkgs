@@ -662,4 +662,22 @@ rec {
     };
   };
 
+  papyrus = buildEclipseUpdateSite rec {
+    name = "papyrus-${version}";
+    version = "4.8.0";
+
+    src = fetchzip {
+      stripRoot = false;
+      url = "https://www.eclipse.org/downloads/download.php?r=1&nf=1&file=/modeling/mdt/papyrus/downloads/drops/4.8.0/R202006100349/Papyrus-Update-4.8.0.zip";
+      sha256 = "12fq1wc2fwd8bvg5mbqzx26ax4rya08clncrwr81asl3qd87nsfq";
+    };
+
+    meta = with stdenv.lib; {
+      homepage = https://www.eclipse.org/papyrus/;
+      description = "The Eclipse Papyrus Modeling environment";
+      platforms = platforms.all;
+      maintainers = [ maintainers.rycee ];
+    };
+  };
+
 }
